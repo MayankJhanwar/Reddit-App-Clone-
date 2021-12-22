@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit</title>
+
+    <!--Stylesheets-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="z-index: 1; margin-top: 0px; position: fixed; width: 100%; background-color: white; height: 50px;">
+            
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img style="max-width:100px;" src="../assets/logo.png">
+                </a>
+            </div>
+
+            <div class="search_container">
+                <div class="form-group has-search">
+                    <input type="text" class="form-control" placeholder="Search Reddit">
+                </div>
+            </div>
+
+            <div class="nav_btn">
+                <button type="button" class="btn btn-outline-primary btn-sm">   Log In   </button>
+                <button type="button" class="btn btn-primary btn-sm">   Sign Up   </button>
+                <button type="button" class="btn btn-dark btn-sm"><i class="fa fa-user-circle-o fa-lg"></i></button>
+            </div>
+
+    </nav>
+
+        
+    <div class="container" style="position: relative; padding-top: 50px; ">
+
+        <h6 style="margin-top: 10px; font-weight: bold; font-size: 18px; padding: 10px 25px">Most Recent</h6>
+
+        <div class="container-body">
+  
+            <% @posts.sort_by{|t| - t.created_at.to_i}.first(3).each do |post| %>          
+                <div class="popular_posts">
+                    
+                    <div class="card" style="width: 22rem; background-color: #FAFAFA">
+                        <div class="card-body">
+                            <h6 style="font-size: 15px; font-weight: bold" class="card-title"><%= post.title %></h6>
+                            <p style="font-size: 11.2px; color: grey;" class="card-text"><%= post.desc %></p>
+                        </div>
+                        
+                        <div class="inpost_toolbar" style="background-color: #FAFAFA; margin-bottom: 6px;">
+                        <p style="padding-left: 20px; font-size: 11px;">Posted by <b style="color: blue;"><%= post.user_name %></b></p>
+                        <p style="padding-left: 20px; font-size: 11px;"><b><%= post.upvote_counter %> Upvotes</b></p>
+                        <p style="padding-left: 20px; font-size: 11px;"><b><%= post.downvote_counter %> Downvotes</b></p>
+                        </div>
+                    </div>
+
+                </div>
+            <% end %>
+
+        </div>
+
+        <h6 style="font-weight: bold; font-size: 18px; padding: 10px 25px">Trending Posts</h6>
+
+
+        <div class="function-container">
+
+            <div class="left_body">
+
+                <div class="post_toolbar">
+                    <button type="button" class="btn btn-light btn-sm"><i class="fa fa-fire" style="padding-right:4px;"></i> Hot</button>
+                    <button type="button" class="btn btn-light btn-sm">India ></button>           
+                    <button type="button" class="btn btn-dark btn-sm"><i class="fa fa-sun-o fa-lg" style="padding-right:5px;"></i>New</button>
+                    <button type="button" class="btn btn-dark btn-sm"><i class="fa fa-line-chart fa-lg" style="padding-right:5px;"></i>Top</button>
+                    <button type="button" class="btn btn-dark btn-sm"><i class="fa fa-ellipsis-h fa-lg" style="padding-right:5px;"></i></button>
+                    <button type="button" class="btn btn-outline-light btn-sm"><i class="fa fa-bars fa-lg"></i></button>
+                </div>
+            
+            
+                <% @posts.order(upvote_counter: :desc).each do |post| %>
+                    <div class="post_display">
+                        <div class="side_display">
+                            <%= link_to (fa_icon "arrow-up"), upvotes_post_path(post), method: :post, remote: true %> <br>               
+                            <b style="font-size: 14px;"><%= post.upvote_counter %></b><br>
+                            <%= link_to (fa_icon "arrow-down"), downvotes_post_path(post), method: :post, remote: true %> <br>
+                        </div>
+                
+                        <div class="default_img">
+                            <button type="button" class="btn btn-dark btn-sm"><i class="fa fa-file-text-o fa-lg" style="padding-right:5px;"></i></button>
+                        </div>
+
+                        <div class="post_show">
+                            <h6 style="font-size: 15px; font-weight: bold"><%= post.title %></h6>
+                            <p style="font-size: 12px; color: grey;"><%= post.desc %></p>
+                            
+                            <div class="inpost_toolbar">
+                                <p style="font-size: 11px;">Posted by <b style="color: blue;"><%= post.user_name %></b></p>
+                                <p style="padding-left: 20px; font-size: 11px;">Created at " <b><%= post.created_at %></b> "</p>
+                                <p style="padding-left: 20px; font-size: 11px;"><b><%= post.downvote_counter %> Downvotes</b></p>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+
+            </div>
+
+            <div class="right_body">
+                <div class="img_container">
+                    <a style="color:white;" href="/posts/new"><img src="../assets/addposts.jpg" alt="Snow" style="height: 100%; width:100%; "></a>
+                    <div class="bottom-left">Share New Posts</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer style="margin-top: 10px;">
+    <br><br>
+    <hr style="height:2px; border-width:0; color:gray; background-color:gray">
+    <p><b>Reddit Clone</b> through <b>Ruby on Rails</b> by <b>Mayank Jhanwar</b></a></p>
+    </footer>
+
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>

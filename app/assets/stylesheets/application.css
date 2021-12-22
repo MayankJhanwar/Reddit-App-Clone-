@@ -1,0 +1,264 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #DAE0E6 !important;
+}
+
+.container-fluid {
+   padding-left: 40px !important;
+   width: 400px !important;
+}
+
+.search_container {
+    width: 50%;
+    margin-right: 100px;
+}
+
+.nav_btn {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+    width: 35%;
+    height: 50px;
+}
+
+.btn-sm {
+    margin-right: 20px;
+    border-radius: 9999px !important;
+    width: 100px;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #FAFAFA;
+}
+
+.container-body {
+    padding: 20px;
+    margin: 20px 20px 20px 20px;
+    height: 290px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    text-align: justify;
+    text-justify: inter-word;
+    justify-content: space-evenly !important;
+}
+
+
+.popular_posts {
+    background-color: white;
+    padding: 0px;
+    min-height: 130px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    height: auto;
+}
+
+
+.function-container {
+    display: flex;
+    padding: 0px;
+    margin: 20px 20px 20px 20px;
+    height: 650px;
+}
+
+.left_body {
+    padding: 0px 10px 0px 0px;
+    margin-bottom: 50px;
+    width: 75%;
+    height: 700px;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    overflow-y: auto;
+}
+
+.post_toolbar {
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.post_display {
+    background-color: white;
+    padding: 0px 1px 0px 0px;
+    width: 100%;
+    min-height: 130px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    height: auto;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.side_display {
+    background-color: #F4F4F4;
+    padding: 10px 5px;
+    text-align: center;
+    margin: 0px;
+    width: 5%;
+}
+
+.btn-side {
+    border: none;
+    background-color: #F4F4F4;
+}
+
+.btn-side :hover {
+    border: none;
+    color: blue;
+}
+
+.default_img {
+    background-color: #F4F4F4;
+    padding-top: 40px;
+    width: 15%;
+    text-align: center;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.post_show {
+    background-color: white;
+    width: 80%;
+    padding: 10px 8px 2px 8px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.inpost_toolbar {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    padding: 18px 0px;
+    height: 35px;
+}
+
+
+.right_body {
+    background-color: white;
+    padding: 0px;
+    width: 25%;
+    height: 200px;
+    margin-top: 0px;
+    margin-bottom: 26px;
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+    background-color: white;  
+}
+
+.img_container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px !important;
+}
+ 
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.btn-light{
+    margin-right: 15px;
+    border-radius: 9999px !important;
+    width: 100px;
+    color: #3366CC !important;
+    font-weight: bold !important;
+}
+
+.btn-dark{
+    margin-right: 5px;
+    width: 70px;
+    color: darkgrey !important;
+    font-weight: bold !important;
+    background-color: white !important;
+    border: 0px !important;
+}
+
+.btn-outline-light{
+    position: absolute;
+    left: 1000px;
+    width: 40px;
+    color: darkgrey !important;
+    background-color: white !important;
+    border: 0px !important;
+}
+
+.form-group{
+    margin: 12px;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    color: black !important;
+    font-size: 13px;
+}
+
+
+.newposts-container {
+    margin: 70px 620px;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;   
+}
+
+.img_contain {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    border-radius: 5px !important;
+}
+
+.center_body {
+    background-color: white;
+    padding: 0px;
+    width: 100%;
+    height: 470px;
+    margin-top: 0px;
+    margin-bottom: 26px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    background-color: white;  
+}
